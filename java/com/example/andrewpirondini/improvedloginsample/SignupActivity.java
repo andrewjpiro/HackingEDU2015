@@ -49,7 +49,7 @@ public class SignupActivity extends Activity {
                 String username = ((EditText) findViewById(R.id.usernameInput)).getText().toString();
                 String password = ((EditText) findViewById(R.id.passwordInput)).getText().toString();
                 String university = ((EditText) findViewById(R.id.universityInput)).getText().toString();
-                String[] strClassCodes = ((EditText) findViewById(R.id.universityInput)).getText().toString().split(" ");
+                String[] strClassCodes = ((EditText) findViewById(R.id.classesInput)).getText().toString().split(" ");
 
                 List<Integer> classCodes = new ArrayList<Integer>();
                 for (String code : strClassCodes) {
