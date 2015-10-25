@@ -16,6 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordDisplay"/>
+    <Button
+        android:id="@+id/cancelOfficeHour"
+        android:text="Cancel Office Hour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="cancelOfficeHour()" />
 
     <LinearLayout
         android:layout_width="wrap_content"
