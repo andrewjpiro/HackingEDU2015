@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.parse.LogInCallback;
@@ -67,14 +69,37 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 String username = ((EditText) findViewById(R.id.usernameInput)).getText().toString();
                 String password = ((EditText) findViewById(R.id.passwordInput)).getText().toString();
+                RadioButton studentSelect = (RadioButton) findViewById(R.id.studentButton);
+                RadioButton teacherSelect = (RadioButton) findViewById(R.id.teacherButton);
 
-                Bundle loginBundle = new Bundle();
-                loginBundle.putString("username", username);
-                loginBundle.putString("password", password);
+                ParseUser user = null;
+                if (studentSelect.isChecked()) {
+                    user = new Student(username, password);
+                } else if (teacherSelect.isChecked()) {
+                    user = new Teacher(username, password);
+                } else {
+                    TextView errorDisplay = (TextView) (findViewById(R.id.errorDisplay));
+                    errorDisplay.setText("Please indicate whether you are a student or a teacher");
+                }
 
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-                intent.putExtra("loginBundle", loginBundle);
-                startActivity(intent);
+                if (user != null) {
+                    user.signUpInBackground(new SignUpCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Bundle loginBundle = new Bundle();
+                                loginBundle.putString("username", ParseUser.getCurrentUser().getUsername());
+
+                                Intent intent = new Intent(getApplicationContext(), DisplayActivity.class);
+                                intent.putExtra("loginBundle", loginBundle);
+                                startActivity(intent);
+                            } else {
+                                TextView errorDisplay = (TextView) (findViewById(R.id.errorDisplay));
+                                errorDisplay.setText(e.getMessage());
+                            }
+                        }
+                    });
+                }
             }
         });
     }
