@@ -17,5 +17,6 @@ public class ParseApplication extends Application{
         Parse.initialize(this, "AT0IVCOmAOb4uRKlz8c4u55sbIxMnom17uN0rUR0",
                 "AyQebnN2QLQzKWDgLXnKLZ2MChyPyUwoltoH5Pl9");
         ParseObject.registerSubclass(Teacher.class);
+        ParseObject.registerSubclass(Student.class);
     }
 }

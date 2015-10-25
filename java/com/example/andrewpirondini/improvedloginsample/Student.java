@@ -8,19 +8,19 @@ import java.util.List;
 /**
  * Created by andrewpirondini on 10/18/15.
  */
-@ParseClassName("Teacher")
-public class Teacher extends ParseUser {
+@ParseClassName("Student")
+public class Student extends ParseUser {
 
-    public Teacher () {
+    public Student () {
         super();
     }
 
-    public Teacher (String username, String password) {
+    public Student (String username, String password) {
         super();
         this.setUsername(username);
         this.setEmail(username);
         this.setPassword(password);
-        this.put("type", "teacher");
+        this.put("type", "student");
     }
 
     public void setUniversity(String university) {

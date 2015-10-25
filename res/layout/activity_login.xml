@@ -45,7 +45,25 @@
             android:text="Password"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp" />
+
+        <RadioGroup
+            android:id="@+id/typeSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/studentButton"
+                android:text="Student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/teacherButton"
+                android:text="Teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
 
     </LinearLayout>
 
@@ -70,5 +88,6 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
 
 </RelativeLayout>
