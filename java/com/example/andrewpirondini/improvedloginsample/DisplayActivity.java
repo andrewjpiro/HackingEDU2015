@@ -15,6 +15,7 @@ public class DisplayActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
         displayLoginInfo(getIntent().getBundleExtra("loginBundle"));
+        setUpCancelOfficeHour();
     }
 
     private void displayLoginInfo(Bundle loginBundle) {
